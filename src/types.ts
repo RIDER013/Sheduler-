@@ -40,6 +40,24 @@ export interface DailyPriority {
 
 export type PresetKey = 'student' | 'office' | 'fitness' | 'freelancer' | 'blank';
 
+export interface DialPin {
+  id: string;
+  title: string;
+  time: string; // "HH:mm"
+  category: CategoryType;
+  iconName?: string; // 'study' | 'gym' | 'sleep' | 'water' | 'food' | 'work' | 'sparkles'
+  photoUrl?: string; // base64 or url
+}
+
+export type DialThemeStyle = 'classic' | 'minimal' | 'neon' | 'aesthetic';
+
+export interface DialStyleConfig {
+  theme: DialThemeStyle;
+  handColor: string;
+  showSeconds: boolean;
+  hourFormat24: boolean;
+}
+
 export interface DailyScheduleState {
   date: string;
   streak: number;
@@ -50,4 +68,6 @@ export interface DailyScheduleState {
   notes: string;
   selectedPreset: PresetKey;
   soundEnabled: boolean;
+  dialPins: DialPin[];
+  dialStyle: DialStyleConfig;
 }

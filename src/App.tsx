@@ -7,7 +7,9 @@ import {
   DailyScheduleState,
 } from './types';
 import { labels } from './data/translations';
-import { PRESET_SCHEDULES, DEFAULT_HABITS, DEFAULT_PRIORITIES } from './data/presets';
+import { PRESET_SCHEDULES, DEFAULT_HABITS, DEFAULT_PRIORITIES, DEFAULT_DIAL_PINS, DEFAULT_DIAL_STYLE } from './data/presets';
+import { DialStudio } from './components/DialStudio';
+import { DialPin, DialStyleConfig } from './types';
 import {
   findActiveBlock,
   formatCurrentDate,
@@ -74,8 +76,18 @@ export default function App() {
       notes: '',
       selectedPreset: 'student',
       soundEnabled: true,
+      dialPins: DEFAULT_DIAL_PINS,
+      dialStyle: DEFAULT_DIAL_STYLE,
     };
   });
+
+  const handleUpdateDialPins = (pins: DialPin[]) => {
+    setState((prev) => ({ ...prev, dialPins: pins }));
+  };
+
+  const handleUpdateDialStyle = (style: DialStyleConfig) => {
+    setState((prev) => ({ ...prev, dialStyle: style }));
+  };
 
   // Active / Upcoming block calculation
   const { active: activeBlock, remainingMinutes, percentElapsed } = useMemo(
@@ -519,6 +531,14 @@ export default function App() {
         <PresetBar
           selectedPreset={state.selectedPreset}
           onSelectPreset={handleSelectPreset}
+        />
+
+        {/* Custom Watch / Routine Dial Studio */}
+        <DialStudio
+          pins={state.dialPins}
+          styleConfig={state.dialStyle}
+          onUpdatePins={handleUpdateDialPins}
+          onUpdateStyle={handleUpdateDialStyle}
         />
 
         {/* Schedule Timeline Section */}

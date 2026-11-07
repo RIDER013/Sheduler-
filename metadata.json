@@ -1,0 +1,6 @@
+{
+  "name": "Daily Scheduler - Routine & Time-Block Planner",
+  "description": "A smart daily routine and time-blocking scheduler with presets for students, professionals, and fitness, habit tracker, and Pomodoro focus timer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

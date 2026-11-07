@@ -49,7 +49,7 @@ export interface DialPin {
   photoUrl?: string; // base64 or url
 }
 
-export type DialThemeStyle = 'classic' | 'minimal' | 'neon' | 'aesthetic';
+export type DialThemeStyle = 'classic' | 'modernMidnight' | 'minimalistMono' | 'electricNeon' | 'aesthetic';
 
 export interface DialStyleConfig {
   theme: DialThemeStyle;

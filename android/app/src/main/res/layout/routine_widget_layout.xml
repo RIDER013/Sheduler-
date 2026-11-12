@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        android:background="@drawable/widget_clock_preview" />
 
 </RelativeLayout>

@@ -33,21 +33,21 @@ public class RoutineWidgetProvider extends AppWidgetProvider {
         float cy = height / 2f;
         float radius = Math.min(cx, cy) - 24f;
 
-        // Dial Background Circle
+        // Dial Background Circle with 90% transparent / 10% opacity (alpha = 25 out of 255)
         Paint bgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        bgPaint.setColor(Color.parseColor("#0f172a")); // Deep slate/navy
+        bgPaint.setColor(Color.argb(25, 15, 23, 42)); // #0f172a with 10% opacity
         canvas.drawCircle(cx, cy, radius, bgPaint);
 
-        // Outer Ring / Border
+        // Outer Ring / Border (Circular shape definition)
         Paint borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        borderPaint.setColor(Color.parseColor("#d97706")); // Amber/gold
+        borderPaint.setColor(Color.parseColor("#38bdf8")); // Sky blue accent
         borderPaint.setStyle(Paint.Style.STROKE);
-        borderPaint.setStrokeWidth(8f);
+        borderPaint.setStrokeWidth(10f);
         canvas.drawCircle(cx, cy, radius, borderPaint);
 
         // Hour Tick Marks & Numbers
         Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        textPaint.setColor(Color.parseColor("#f8fafc"));
+        textPaint.setColor(Color.parseColor("#ffffff"));
         textPaint.setTextSize(36f);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
@@ -86,7 +86,7 @@ public class RoutineWidgetProvider extends AppWidgetProvider {
         double hourRad = Math.toRadians(hourAngle - 90);
         float hourHandLen = radius * 0.5f;
         Paint hourPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        hourPaint.setColor(Color.parseColor("#d97706"));
+        hourPaint.setColor(Color.parseColor("#38bdf8"));
         hourPaint.setStrokeWidth(12f);
         hourPaint.setStrokeCap(Paint.Cap.ROUND);
         canvas.drawLine(cx, cy, (float)(cx + hourHandLen * Math.cos(hourRad)), (float)(cy + hourHandLen * Math.sin(hourRad)), hourPaint);
@@ -96,18 +96,18 @@ public class RoutineWidgetProvider extends AppWidgetProvider {
         double minuteRad = Math.toRadians(minuteAngle - 90);
         float minHandLen = radius * 0.75f;
         Paint minPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        minPaint.setColor(Color.parseColor("#f8fafc"));
+        minPaint.setColor(Color.parseColor("#ffffff"));
         minPaint.setStrokeWidth(8f);
         minPaint.setStrokeCap(Paint.Cap.ROUND);
         canvas.drawLine(cx, cy, (float)(cx + minHandLen * Math.cos(minuteRad)), (float)(cy + minHandLen * Math.sin(minuteRad)), minPaint);
 
         // Center Pivot Pin
         Paint pivotPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pivotPaint.setColor(Color.parseColor("#f8fafc"));
+        pivotPaint.setColor(Color.parseColor("#ffffff"));
         canvas.drawCircle(cx, cy, 12f, pivotPaint);
 
         Paint pivotInnerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pivotInnerPaint.setColor(Color.parseColor("#d97706"));
+        pivotInnerPaint.setColor(Color.parseColor("#38bdf8"));
         canvas.drawCircle(cx, cy, 6f, pivotInnerPaint);
 
         return bitmap;

@@ -490,17 +490,15 @@ export const PRESET_SCHEDULES: Record<PresetKey, TimeBlock[]> = {
 import { DialPin, DialStyleConfig } from '../types';
 
 export const DEFAULT_DIAL_PINS: DialPin[] = [
-  { id: 'pin-1', title: 'Wake Up', time: '06:00', category: 'routine', iconName: 'sun' },
-  { id: 'pin-2', title: 'Gym Workout', time: '07:00', category: 'fitness', iconName: 'gym' },
-  { id: 'pin-3', title: 'Deep Work', time: '09:30', category: 'work', iconName: 'work' },
-  { id: 'pin-4', title: 'Healthy Lunch', time: '13:00', category: 'meal', iconName: 'food' },
-  { id: 'pin-5', title: 'Evening Walk', time: '17:30', category: 'fitness', iconName: 'water' },
-  { id: 'pin-6', title: 'Sleep', time: '22:30', category: 'sleep', iconName: 'sleep' },
+  { id: 'pin-1', title: 'Self', time: '08:00', category: 'routine', iconName: 'sun', color: '#22c55e' },
+  { id: 'pin-2', title: 'Content', time: '12:00', category: 'hobby', iconName: 'sparkles', color: '#f97316' },
+  { id: 'pin-3', title: 'Lambo Mission', time: '15:00', category: 'work', iconName: 'work', color: '#38bdf8' },
+  { id: 'pin-4', title: 'Study', time: '20:00', category: 'study', iconName: 'study', color: '#ec4899' },
 ];
 
 export const DEFAULT_DIAL_STYLE: DialStyleConfig = {
-  theme: 'classic',
-  handColor: '#d97706', // amber-600
+  theme: 'skyBlue',
+  handColor: '#38bdf8', // Sky Blue
   showSeconds: true,
   hourFormat24: true,
 };

@@ -47,9 +47,10 @@ export interface DialPin {
   category: CategoryType;
   iconName?: string; // 'study' | 'gym' | 'sleep' | 'water' | 'food' | 'work' | 'sparkles'
   photoUrl?: string; // base64 or url
+  color?: string; // color swatch
 }
 
-export type DialThemeStyle = 'classic' | 'modernMidnight' | 'minimalistMono' | 'electricNeon' | 'aesthetic';
+export type DialThemeStyle = 'skyBlue' | 'kesri' | 'pink' | 'green';
 
 export interface DialStyleConfig {
   theme: DialThemeStyle;

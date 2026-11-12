@@ -8,7 +8,7 @@ interface WatchTheme {
 }
 
 const WATCHES: WatchTheme[] = [
-  { id: 'car', handColor: '#38bdf8', icon: <Car className="w-8 h-8 text-sky-400" /> },
+  { id: 'lambo', handColor: '#38bdf8', icon: <Car className="w-8 h-8 text-sky-400" /> },
   { id: 'self', handColor: '#22c55e', icon: <User className="w-8 h-8 text-emerald-400" /> },
   { id: 'video', handColor: '#ec4899', icon: <Video className="w-8 h-8 text-pink-400" /> },
   { id: 'pen', handColor: '#f97316', icon: <PenTool className="w-8 h-8 text-orange-400" /> },
@@ -26,7 +26,7 @@ export const AnalogWatchHome: React.FC = () => {
         if (idx !== -1) return idx;
       }
     } catch {}
-    return 0; // Default to car / supercar
+    return 0; // Default to lambo
   });
 
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
@@ -52,7 +52,7 @@ export const AnalogWatchHome: React.FC = () => {
         const history: Record<string, Record<string, number>> = rawHistory ? JSON.parse(rawHistory) : {};
         
         if (!history[today]) {
-          history[today] = { car: 0, self: 0, video: 0, pen: 0 };
+          history[today] = { lambo: 0, self: 0, video: 0, pen: 0 };
         }
         history[today][activeWatch.id] = (history[today][activeWatch.id] || 0) + 1;
         
@@ -174,7 +174,7 @@ export const AnalogWatchHome: React.FC = () => {
           />
         </div>
 
-        {/* Icon below watch (Lamborghini/Car supercar icon, Self, Video, Pen) */}
+        {/* Icon below watch */}
         <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-lg animate-fade-in">
           {activeWatch.icon}
         </div>
@@ -217,7 +217,7 @@ export const AnalogWatchHome: React.FC = () => {
         )}
       </div>
 
-      {/* History Modal (Opens on top-right history icon click) */}
+      {/* History Modal */}
       {showHistoryModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in"
@@ -255,7 +255,7 @@ export const AnalogWatchHome: React.FC = () => {
                         if (secs === 0) return null;
                         return (
                           <div key={act} className="flex items-center justify-between p-2 rounded-xl bg-black/40 border border-white/5 text-xs">
-                            <span className="capitalize text-white/80 font-medium">{act}</span>
+                            <span className="capitalize text-white/80 font-medium">{act === 'lambo' ? 'Lambo' : act}</span>
                             <span className="font-mono text-sky-300">{formatTimeSpent(secs)}</span>
                           </div>
                         );
